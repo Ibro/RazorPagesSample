@@ -1,0 +1,41 @@
+﻿@page
+@model IndexModel
+
+<h1>Categories</h1>
+
+<a asp-page="./Create">Create New</a>
+
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model.Categories)
+            {
+                <tr>
+                    <td>@category.Id</td>
+                    <td>@category.Name</td>
+                    <td>@category.Description</td>
+                    <td>
+                        <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@category.Id">Edit</a>
+                    </td>
+                    <td>
+                        <button class="btn btn-warning"
+                                type="submit"
+                                asp-page-handler="delete"
+                                asp-route-id="@category.Id">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

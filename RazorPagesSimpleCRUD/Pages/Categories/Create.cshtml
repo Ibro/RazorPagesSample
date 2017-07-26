@@ -1,0 +1,17 @@
+﻿@page
+@model CreateModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
+<div>
+    <p>
+        Create new Category.
+    </p>
+    <div asp-validation-summary="All"></div>
+    <form method="POST">
+        <div>Name: <input asp-for="Category.Name" /></div>
+        <div>Description: <input asp-for="Category.Description" /></div>
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+</div>
